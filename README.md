@@ -9,7 +9,7 @@ A hands-on phishing simulation lab using GoPhish on Kali Linux to demonstrate so
 - **Tools/Environment** : Windows host machine, Kali Linux VM (bridged networking — same IP subnet as host), GoPhish phishing framework, Gmail SMTP (with App Password), Firefox/Chrome on Kali for interface, Snipping Tool on Windows for screenshots.
 - **Repo Structure**:
   - `screenshots/` : Step-by-step visuals of GoPhish interface, configurations, and results (organized by phase: 01_launch-and-login, 02_sending-profile, etc.).
-  - `errors-faced/` : Any network, firewall, SMTP, or binding issues encountered (currently empty if none occurred).
+
 - **Progress** : Simulation fully completed (launch → sending profile → landing page → email template → target group → campaign launch & results).
 
 ## Simulation Setup Facts
@@ -19,7 +19,7 @@ A hands-on phishing simulation lab using GoPhish on Kali Linux to demonstrate so
 | Virtualization          | VMware / VirtualBox / Hyper-V                      | Kali Linux VM in bridge mode (same subnet as Windows host)                             |
 | Network                 | Bridged adapter                                    | Kali IP (e.g., 192.168.x.x) used as phishing listener base URL                         |
 | GoPhish Admin Interface | https://localhost:3333 (on Kali)                   | Self-signed certificate accepted; default credentials shown in terminal                |
-| Phishing Listener       | http://<KALI_IP>:80                                | Campaign URL base (e.g., http://192.168.1.105); port 80 open or forwarded if needed    |
+| Phishing Listener       | http://<KALI_IP>:80                                | Campaign URL base (e.g., http://10.145.142.93); port 80 open or forwarded if needed    |
 | Sending Profile         | Gmail SMTP (smtp.gmail.com:587 or 465, TLS/STARTTLS) | App Password required (normal password blocked by Google)                              |
 | Target Group            | Manual entry (single test recipient)               | Self-owned email account only — no real users targeted                                 |
 | Screenshot Capture      | Windows Snipping Tool (Win+Shift+S)                | Captured Kali VM screen; saved directly into repo folders                              |
@@ -52,7 +52,7 @@ Accessed GoPhish on Kali Linux VM via terminal launch and browser interface.
 3. **Landing Page Creation**  
    - Created new landing page → imported HTML source from legitimate site (e.g., Google login clone).  
    - Enabled "Capture Submitted Data" and "Capture Passwords".  
-   - Set redirect URL to real legitimate site after form submission.  
+   - Set redirect URL to https://myaccount.google.com/ 
    - Saved and verified page preview.  
 
    ![New landing page created with capture options](screenshots/03_landing-page/new-landing-page-created.png)
@@ -80,11 +80,13 @@ Accessed GoPhish on Kali Linux VM via terminal launch and browser interface.
    - Observed email sent → opened → link clicked → credentials submitted.  
    - Viewed captured credentials, timeline, and full events.  
 
-   ![New campaign setup](screenshots/06_campaign-and-results/new-campaign-setup.png)  
-   ![Phishing email preview](screenshots/06_campaign-and-results/phishing-email-preview.png)  
+   ![New campaign setup](screenshots/06_campaign-and-results/new-campaign-setup.png)
    ![Campaign launched dashboard](screenshots/06_campaign-and-results/campaign-launched-dashboard.png)  
-   ![Results timeline view](screenshots/06_campaign-and-results/results-timeline.png)  
+   ![Phishing email preview](screenshots/06_campaign-and-results/phishing-email-preview.png)  
+   ![Landing page preview](screenshots/06_campaign-and-results/Landing-Page-Created-to-steal.png)
+   ![Redirect to myaccount](screenshots/06_campaign-and-results/Redirect-to-myaccount.png)
    ![Clicked link & interaction results](screenshots/06_campaign-and-results/clicked-link-results.png)  
+   ![Results timeline view](screenshots/06_campaign-and-results/results-timeline.png)    
    ![Captured compromised credentials](screenshots/06_campaign-and-results/compromised-credentials.png)  
    ![Simulation complete overview](screenshots/06_campaign-and-results/simulation-complete-overview.png)
 
