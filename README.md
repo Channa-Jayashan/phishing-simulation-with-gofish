@@ -17,7 +17,7 @@ A hands-on phishing simulation lab using GoPhish on Kali Linux to demonstrate so
 | Aspect                  | Instruments / Details                              | Implementation / Notes                                                                 |
 |-------------------------|----------------------------------------------------|----------------------------------------------------------------------------------------|
 | Virtualization          | VMware / VirtualBox / Hyper-V                      | Kali Linux VM in bridge mode (same subnet as Windows host)                             |
-| Network                 | Bridged adapter                                    | Kali IP (e.g., 192.168.x.x) used as phishing listener base URL                         |
+| Network                 | Bridged adapter                                    | Kali IP (e.g., 10.145.143.x) used as phishing listener base URL                         |
 | GoPhish Admin Interface | https://localhost:3333 (on Kali)                   | Self-signed certificate accepted; default credentials shown in terminal                |
 | Phishing Listener       | http://<KALI_IP>:80                                | Campaign URL base (e.g., http://10.145.142.93); port 80 open or forwarded if needed    |
 | Sending Profile         | Gmail SMTP (smtp.gmail.com:587 or 465, TLS/STARTTLS) | App Password required (normal password blocked by Google)                              |
